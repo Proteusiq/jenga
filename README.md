@@ -1,5 +1,7 @@
 # jenga
-Unhelling Python Environment: Bash script to for easy setup
+Unhelling Python Environment: Bash script to easy setup
+
+Jenga is a Swahili word for `build`. `jenga.sh` automate the steps needed to setup python with `pyenv`. Let's reduce the potential for human error and get your system unhelled faster than ever before.
 
 ### Examples
 Download `jenga.sh`. Ensure that you understand what the script is doing before running it.
@@ -35,7 +37,7 @@ brew install gnu-getopt && brew link --force gnu-getopt
 ```
 
 #### Windows
-Windows users need[WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
+Windows users need [WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
 - [ ] Download and Install Ubuntu from the Microsoft Store.
 - [ ] Execute code below as Admin & Restart PC (`shutdown /R /T 0`).
 ```powershell
