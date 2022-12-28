@@ -26,9 +26,10 @@ setup_pyenv() {
     echo "Installing pyenv with global Python ${python} the rc is ${runcommands}"
     echo "Updating & Installing necessary packages"
 
-    sudo apt update -y && sudo apt install -y curl git gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev \
-        zlib1g-dev libncursesw5-dev libgdbm-dev libc6-dev zlib1g-dev libsqlite3-dev tk-dev libssl-dev openssl libffi-dev \
-        liblzma-dev
+    sudo apt update -y && sudo apt install -y curl git gcc make openssl \
+                          libssl-dev libbz2-dev libreadline-dev libsqlite3-dev \
+                          zlib1g-dev libncursesw5-dev libgdbm-dev libc6-dev \
+                          tk-dev libffi-dev liblzma-dev
 
     echo "Installing Pyenv"
     # install pyenv
