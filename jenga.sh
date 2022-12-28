@@ -22,6 +22,7 @@ EOF
 }
 
 setup_pyenv() {
+    # Installing sets for pyenv that does not depend on Python
     echo "Installing pyenv with global Python ${python} the rc is ${runcommands}"
     echo "Updating & Installing necessary packages"
 
@@ -31,33 +32,33 @@ setup_pyenv() {
 
     echo "Installing Pyenv"
     # install pyenv
-    # curl https://pyenv.run | bash
+    curl https://pyenv.run | bash
 
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
 
     pyenv update && pyenv install ${python} &&
 
-        # set pyenv to .bashrc or .profile
+        # set pyenv to .bashrc or .profile or .zshrc
         echo -e '\nexport PYENV_ROOT="$HOME/.pyenv"
     \ncommand -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
     \neval "$(pyenv init -)"' >>${runcommands}
 
-    #  source bashrc
-    echo "Setting completed. To complete installation execute >> source ${runcommands}"
+    #  source .bashrc or .profile or .zshrc
+    echo "Setup completed. To complete installation execute >> source ${runcommands}"
 }
 
 setup_jupyter() {
-
-    echo "Install Jupyter Lab"
+    # instructions to install jupyter lab and nodejs
+    echo "Install Jupyter Lab & Nodejs used in jupyter extensions"
     pyenv virtualenv ${python} jupyter
-    pyenv activate jupyter
-    python -m pip install --upgrade pip && pip install jupyterlab
+    pyenv activate jupyter &&
+        python -m pip install --upgrade pip && pip install jupyterlab
     cd ~ && curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
     sudo apt-get install -y nodejs
-    node --version
     jupyter labextension install jupyterlab-plotly
     pyenv global ${python} jupyter
+    echo "Installation completed. Node $(node --version) powering Jupyter"
 }
 
 export python=3.10
@@ -101,13 +102,17 @@ while true; do
     check_args="false"
     shift
 done
+
+# if no arguments echo this message
 [[ "$check_args" == "true" ]] && {
     echo "Run: ./jenga.sh --help"
     exit 1
 }
 
+# run pyenv installation if true
 [[ "$run_setup" == "true" ]] && { setup_pyenv; }
 
+# run jupyter installation if flagged
 [[ "$jupyter" == 1 ]] && { setup_jupyter; }
 
 echo "completed :dragon:"
