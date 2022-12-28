@@ -1,5 +1,6 @@
 # jenga
 Unhelling Python Environment: Bash script to easy setup
+![pythonhell](pythonhell.png)
 
 Jenga is a Swahili word for `build`. `jenga.sh` automate the steps needed to setup python with `pyenv`. Let's reduce the potential for human error and get your system unhelled faster than ever before.
 
