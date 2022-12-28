@@ -21,13 +21,16 @@ EOF
 
 }
 
+setup_pyenv(){
+    echo "Installing pyenv with global Python ${python} the rc is ${runcommands}"
+}
 
 export python=3.10
-export runcommands=bashrc
+export runcommands=$HOME/.bashrc
 export jupyter=0
 
 
-options=$(getopt -l "help,python,runcommands:,jupyter" -o "hpr:j" -a -- "$@")
+options=$(getopt -l "help,runcommands:,python:,jupyter" -o "hr:p:j" -a -- "$@")
 
 eval set -- "$options"
 
@@ -40,24 +43,35 @@ case "$1" in
     help
     exit 0
     ;;
--p|--python) 
-    shift
-    export python="$1"
-    ;;
 -r|--runcommands) 
     shift
     export runcommands="$HOME/.$1"
     ;;
+-p|--python) 
+    shift
+    export python="$1"
+    ;;
+
 -j|--jupyter)
     export jupyter=1
     ;;
 --)
+
+
     shift
     break;;
 esac
+
+
+
+
 check_args="false"
 shift
 done
-[[ "$check_args" == "true" ]] && { help; exit 1;}
+[[ "$check_args" == "true" ]] && { echo "Run: ./jenga.sh --help"; exit 1;}
+
+setup_pyenv
+[[ "$jupyter" == 1 ]] && { echo "Install Jupyter Lab";}
+
 
 echo $python $runcommands $jupyter
