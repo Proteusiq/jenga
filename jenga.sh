@@ -7,7 +7,7 @@ help() {
 
     cat <<EOF
 Usage: ./jenga --python=3.10 [-hrj]
-Unhelling Python Environments: install pyenv and poetry to manage environements
+Unhelling Python Environments: install pyenv to manage environements
 
 -h, -help,          --help                  Display help
 
@@ -45,6 +45,19 @@ setup_pyenv() {
 
     #  source bashrc
     echo "Setting completed. To complete installation execute >> source ${runcommands}"
+}
+
+setup_jupyter() {
+
+    echo "Install Jupyter Lab"
+    pyenv virtualenv ${python} jupyter
+    pyenv activate jupyter
+    python -m pip install --upgrade pip && pip install jupyterlab
+    cd ~ && curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    node --version
+    jupyter labextension install jupyterlab-plotly
+    pyenv global ${python} jupyter
 }
 
 export python=3.10
@@ -95,6 +108,6 @@ done
 
 [[ "$run_setup" == "true" ]] && { setup_pyenv; }
 
-[[ "$jupyter" == 1 ]] && { echo "Install Jupyter Lab"; }
+[[ "$jupyter" == 1 ]] && { setup_jupyter; }
 
 echo $python $runcommands $jupyter
