@@ -110,4 +110,4 @@ done
 
 [[ "$jupyter" == 1 ]] && { setup_jupyter; }
 
-echo $python $runcommands $jupyter
+echo "completed :dragon:"
