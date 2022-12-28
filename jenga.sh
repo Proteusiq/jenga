@@ -11,9 +11,9 @@ Unhelling Python Environments: install pyenv to manage environements
 
 -h, -help,          --help                  Display help
 
--p, -python,       --python                 Main Python version default $(3.10)
+-p, -python,       --python                 Main Python version default "3.10"
 
--r, -runcommands,  --runcommands            Run Commands default $(.bashrc)
+-r, -runcommands,  --runcommands            Run Commands default "$HOME/.bashrc"
 
 -j, -jupyter,      --jupyter                Install a global Jupyter Lab
 
