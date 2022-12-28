@@ -23,6 +23,31 @@ EOF
 
 setup_pyenv(){
     echo "Installing pyenv with global Python ${python} the rc is ${runcommands}"
+    echo "Updating & Installing necessary packages"
+
+    sudo apt update -y && sudo apt install  -y curl git gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev \
+        zlib1g-dev libncursesw5-dev libgdbm-dev libc6-dev zlib1g-dev libsqlite3-dev tk-dev libssl-dev openssl libffi-dev \
+        liblzma-dev;
+
+
+    echo "Installing Pyenv"
+    # install pyenv 
+    # curl https://pyenv.run | bash
+
+    # export PYENV_ROOT="$HOME/.pyenv"
+    # export PATH="$PYENV_ROOT/bin:$PATH"
+
+    pyenv update && pyenv install ${python} && \
+
+    # set pyenv to .bashrc or .profile
+    echo -e '\nexport PYENV_ROOT="$HOME/.pyenv"
+    \ncommand -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    \neval "$(pyenv init -)"' >> ${runcommands};
+
+
+    
+    #  source bashrc
+    echo "Setting completed. To complete installation execute >> source ${runcommands}"
 }
 
 export python=3.10
