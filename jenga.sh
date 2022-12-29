@@ -7,7 +7,7 @@ help() {
 
     cat <<EOF
 Usage: ./jenga --python=3.10 [-hrj]
-Unhelling Python Environments: install pyenv to manage environements
+Unhelling Python Environments: Managers [🐍pyenv|PDM] |[🦀 pyflow]
 
 -h, -help,          --help                  Display help
 
@@ -84,12 +84,12 @@ while true; do
     -r | --runcommands)
         shift
         export runcommands="$HOME/.$1"
-        run_setup="true"
+        run_setup="pyenv"
         ;;
     -p | --python)
         shift
         export python="$1"
-        run_setup="true"
+        run_setup="pyenv"
         ;;
 
     -j | --jupyter)
@@ -113,7 +113,7 @@ done
 }
 
 # run pyenv installation if true
-[[ "$run_setup" == "true" ]] && { setup_build; setup_pyenv; }
+[[ "$run_setup" == "pyenv" ]] && { setup_build; setup_pyenv; }
 
 # run jupyter installation if flagged
 [[ "$jupyter" == 1 ]] && { setup_jupyter; }
