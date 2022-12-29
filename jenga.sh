@@ -21,16 +21,18 @@ EOF
 
 }
 
-setup_pyenv() {
-    # Installing sets for pyenv that does not depend on Python
-    echo "Installing pyenv with global Python ${python} the rc is ${runcommands}"
+setup_build(){
+    # Packages to compile Python
     echo "Updating & Installing necessary packages"
 
     sudo apt update -y && sudo apt install -y curl git gcc make openssl \
                           libssl-dev libbz2-dev libreadline-dev libsqlite3-dev \
                           zlib1g-dev libncursesw5-dev libgdbm-dev libc6-dev \
-                          tk-dev libffi-dev liblzma-dev
-
+                          tk-dev libffi-dev liblzma-dev 
+}
+setup_pyenv() {
+    # Installing sets for pyenv that does not depend on Python
+    echo "Installing pyenv with global Python ${python} the rc is ${runcommands}"
     echo "Installing Pyenv"
     # install pyenv
     curl https://pyenv.run | bash
@@ -111,7 +113,7 @@ done
 }
 
 # run pyenv installation if true
-[[ "$run_setup" == "true" ]] && { setup_pyenv; }
+[[ "$run_setup" == "true" ]] && { setup_build; setup_pyenv; }
 
 # run jupyter installation if flagged
 [[ "$jupyter" == 1 ]] && { setup_jupyter; }
