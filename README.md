@@ -46,5 +46,11 @@ Windows users need [WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
 wsl --install
 ```
 
+## Roadmap 
+-[ ] Create uninstall script
+-[ ] Add Poetry installation similar to Jupiter's
+-[ ] Write examples
+-[ ] Start project flow `jenga.sh new <ProjectName>`
+
 ## Credit
 The bash script templete adopts [command line named parameter bash](https://www.linkedin.com/pulse/command-line-named-parameters-bash-karthik-bhat-k/?published=t) - Karthik Bhat K
