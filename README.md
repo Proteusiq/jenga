@@ -4,6 +4,13 @@ Unhelling Python Environment: Bash script to easy setup
 
 Jenga is a Swahili word for `build`. `jenga.sh` automate the steps needed to setup python with `pyenv`. Let's reduce the potential for human error and get your system unhelled faster than ever before.
 
+## Usage
+![image](https://user-images.githubusercontent.com/14926709/213185121-783fcc2e-4309-4a7a-9401-fd0bb6c2331e.png)
+
+```sh
+curl -L https://raw.githubusercontent.com/Proteusiq/jenga/main/jenga.sh | bash -s _ --help 
+```
+
 ### Examples
 Download `jenga.sh`. Ensure that you understand what the script is doing before running it.
 
@@ -24,6 +31,8 @@ e.g. use latest `python 3.9`, with `.zshrc` as run commands and install `jupyter
 ```bash
 ./jenga.sh --python=3.9 --runcommands=zshrc --jupyter
 ```
+
+curl -o- https://raw.githubusercontent.com/Proteusiq/jenga/main/jenga.sh --help | bash
 
 # Why?
 ![XKCD](https://imgs.xkcd.com/comics/python_environment.png)
