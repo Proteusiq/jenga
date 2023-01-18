@@ -7,8 +7,15 @@ Jenga is a Swahili word for `build`. `jenga.sh` automate the steps needed to set
 ## Usage
 ![image](https://user-images.githubusercontent.com/14926709/213185121-783fcc2e-4309-4a7a-9401-fd0bb6c2331e.png)
 
+Help Menu:
 ```sh
 curl -L https://raw.githubusercontent.com/Proteusiq/jenga/main/jenga.sh | bash -s _ --help 
+```
+
+Installing latest Python 3.10 and a Jupyter Lab virtual environment with in changing .bashrc
+
+```sh
+curl -L https://raw.githubusercontent.com/Proteusiq/jenga/main/jenga.sh | bash -s _ --python=3.10 --runcommands=bashrc --jupyter
 ```
 
 ### More Safe Examples
