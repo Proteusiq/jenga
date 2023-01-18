@@ -11,8 +11,8 @@ Jenga is a Swahili word for `build`. `jenga.sh` automate the steps needed to set
 curl -L https://raw.githubusercontent.com/Proteusiq/jenga/main/jenga.sh | bash -s _ --help 
 ```
 
-### Examples
-Download `jenga.sh`. Ensure that you understand what the script is doing before running it.
+### More Safe Examples
+Download `jenga.sh` from the repository. Ensure that you understand what the script is doing before running it.
 
 Make `jenga.sh` executable
 ```bash
