@@ -39,8 +39,6 @@ e.g. use latest `python 3.9`, with `.zshrc` as run commands and install `jupyter
 ./jenga.sh --python=3.9 --runcommands=zshrc --jupyter
 ```
 
-curl -o- https://raw.githubusercontent.com/Proteusiq/jenga/main/jenga.sh --help | bash
-
 # Why?
 ![XKCD](https://imgs.xkcd.com/comics/python_environment.png)
 
