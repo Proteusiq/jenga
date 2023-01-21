@@ -7,7 +7,7 @@ help() {
 
     cat <<EOF
 Usage: ./jenga --python=3.10 [-hrj]
-Unhelling Python Environments: Managers [🐍pyenv|PDM] |[🦀 pyflow]
+Unhelling Python Managers w/🐍 pyenv and Environments w/🪴 poetry 
 
 -h, -help,          --help                  Display help
 
