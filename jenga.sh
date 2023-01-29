@@ -58,7 +58,7 @@ setup_jupyter() {
     pyenv activate jupyter &&
         python -m pip install --upgrade pip && pip install jupyterlab
     cd ~ && curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-    sudo apt-get install -y nodejs
+    sudo apt install -y nodejs
     jupyter labextension install jupyterlab-plotly
     pyenv global ${python} jupyter
     echo "Installation completed. Node $(node --version) powering Jupyter"
